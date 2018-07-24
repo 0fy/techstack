@@ -1,0 +1,38 @@
+{
+  "description": "Debian 9.5 guest system ready to use for vagrant/VirtualBox",
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "boot_command": [
+        "<esc><wait>",
+        "auto url=https://raw.githubusercontent.com/isotoxal/debian-preconfiguration/master/preseed.cfg <wait>",
+        "<enter>"
+      ],
+      "disk_size": "30720",
+      "guest_os_type": "Debian_64",
+      "headless": true,
+      "iso_checksum": "f8446a84356a6bcbf79201cc9f46063f",
+      "iso_checksum_type": "md5",
+      "iso_url": "/Users/sven/Desktop/THREAD.dev.me/config_node_bumblebee/techstack/macos/virtualbox/debian-9.5.0-amd64-netinst.iso",
+      "guest_additions_mode" : "attach",
+      "ssh_password": "vagrant",
+      "ssh_username": "vagrant",
+      "shutdown_command": "sudo /sbin/halt -p"
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "vagrant",
+        "output": "vboxguest_debian9.5_64.box"
+      }
+    ]
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "echo 'vagrant'| sudo -S sh '{{ .Path }}'",
+      "script": "installer.sh"
+    }
+  ]
+}
