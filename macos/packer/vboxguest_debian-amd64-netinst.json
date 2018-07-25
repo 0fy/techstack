@@ -24,7 +24,7 @@
     [
       {
         "type": "vagrant",
-        "output": "build/vboxguest_debian9.5_64.box"
+        "output": "build/vboxguest_debian9.5_64_{{ isotime }}.box"
       }
     ]
   ],
