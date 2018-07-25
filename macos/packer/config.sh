@@ -12,7 +12,10 @@ wget --no-check-certificate https://raw.github.com/mitchellh/vagrant/master/keys
 chmod 0600 /home/vagrant/.ssh/authorized_keys
 chown -R vagrant /home/vagrant/.ssh
 echo "==> ssh for vagrant configured <=="
+echo "==> Cleaning up installation  <=="
 apt-get -y autoremove
 apt-get -y clean
 dd if=/dev/zero of=/EMPTY bs=1M
 rm -f /EMPTY
+sync
+echo "==> Cleaning up finished  <=="
