@@ -5,7 +5,7 @@
       "type": "virtualbox-iso",
       "boot_command": [
         "<esc><wait>",
-        "auto url=https://raw.githubusercontent.com/isotoxal/debian-preconfiguration/master/preseed.cfg <wait>",
+        "auto url=https://raw.githubusercontent.com/0fy/master/techstack/macos/packer/install_debian_pressed.conf <wait>",
         "<enter>"
       ],
       "disk_size": "30720",
@@ -13,7 +13,7 @@
       "headless": true,
       "iso_checksum": "f8446a84356a6bcbf79201cc9f46063f",
       "iso_checksum_type": "md5",
-      "iso_url": "/Users/sven/Desktop/THREAD.dev.me/config_node_bumblebee/techstack/macos/virtualbox/debian-9.5.0-amd64-netinst.iso",
+      "iso_url": "http://ftp.uni-stuttgart.de/debian-cd/current/amd64/iso-cd/debian-9.5.0-amd64-netinst.iso",
       "guest_additions_mode" : "attach",
       "ssh_password": "vagrant",
       "ssh_username": "vagrant",
@@ -32,7 +32,7 @@
     {
       "type": "shell",
       "execute_command": "echo 'vagrant'| sudo -S sh '{{ .Path }}'",
-      "script": "installer.sh"
+      "script": "config.sh"
     }
   ]
 }
