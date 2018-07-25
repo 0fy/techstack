@@ -5,7 +5,7 @@
       "type": "virtualbox-iso",
       "boot_command": [
         "<esc><wait>",
-        "auto url=https://raw.githubusercontent.com/0fy/master/techstack/macos/packer/install_debian_preseed.conf <wait>",
+        "auto url=https://raw.githubusercontent.com/0fy/techstack/master/macos/packer/install_debian_preseed.conf <wait>",
         "<enter>"
       ],
       "disk_size": "30720",
