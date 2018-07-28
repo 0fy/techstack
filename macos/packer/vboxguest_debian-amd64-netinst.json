@@ -1,5 +1,9 @@
 {
   "description": "Debian 9.5 guest system ready to use for vagrant/VirtualBox",
+  "variables": {
+   "cloud_token": "{{ env `VAGRANT_CLOUD_TOKEN` }}",
+   "version": "1.0.1"
+ },
   "builders": [
     {
       "type": "virtualbox-iso",
@@ -24,7 +28,14 @@
     [
       {
         "type": "vagrant",
+        "compression_level":9,
         "output": "build/vboxguest_debian9.5_64_{{ isotime }}.box"
+      },
+      {
+        "type": "vagrant-cloud",
+        "box_tag": "0fy/debian-9.5.0-amd64-netinst",
+        "access_token": "{{user `cloud_token`}}",
+        "version": "{{user `version`}}"
       }
     ]
   ],
